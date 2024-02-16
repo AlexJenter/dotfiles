@@ -1,0 +1,3 @@
+alias l="ls -Glah"
+alias ..="cd .."
+alias ...="cd ../.."

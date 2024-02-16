@@ -1,0 +1,9 @@
+l
+vim dotfiles/zsh/.config/zsh/zsh-aliases
+l
+brew
+cat .zshrc.omz-uninstalled-2024-02-16_11-06-04
+l
+vim .zprofile
+mv .zprofile dotfiles/zsh/.config/zsh
+l
