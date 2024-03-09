@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 alias l="ls -Glah"
 alias ..="cd .."
 alias ...="cd ../.."
