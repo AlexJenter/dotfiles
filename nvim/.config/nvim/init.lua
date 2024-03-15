@@ -157,7 +157,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-
+	"nvim-lua/plenary.nvim",
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
 	-- keys can be used to configure plugin behavior/loading/etc.
@@ -303,6 +303,7 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+			vim.keymap.set("n", "<leader>sr", builtin.git_files, { desc = "[S]earch in [R]epo" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
@@ -542,27 +543,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
-	{ -- Autoformat
-		"stevearc/conform.nvim",
-		opts = {
-			notify_on_error = false,
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			},
-			formatters_by_ft = {
-				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
-			},
-		},
-	},
-
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -614,15 +594,13 @@ require("lazy").setup({
 				-- No, but seriously. Please read `:help ins-completion`, it is really good!
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
-					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-j>"] = cmp.mapping.select_next_item(),
 					-- Select the [p]revious item
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-
+					["<C-k>"] = cmp.mapping.select_prev_item(),
 					-- Accept ([y]es) the completion.
 					--  This will auto-import if your LSP supports it.
 					--  This will expand snippets if the LSP sent a snippet.
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
-
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					-- Manually trigger a completion from nvim-cmp.
 					--  Generally you don't need this, because nvim-cmp will display
 					--  completions whenever it has completion options available.
@@ -654,6 +632,25 @@ require("lazy").setup({
 				},
 			})
 		end,
+	},
+	{ -- Autoformat
+		"stevearc/conform.nvim",
+		opts = {
+			notify_on_error = false,
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- Conform can also run multiple formatters sequentially
+				-- python = { "isort", "black" },
+				--
+				-- You can use a sub-list to tell conform to run *until* a formatter
+				-- is found.
+				-- javascript = { { "prettierd", "prettier" } },
+			},
+		},
 	},
 
 	-- Highlight todo, notes, etc in comments
@@ -709,7 +706,7 @@ require("lazy").setup({
 
 			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "bash", "c", "html", "lua", "markdown", "vim", "vimdoc" },
+				ensure_installed = { "bash", "c", "html", "lua", "markdown", "markdown_inline", "vim", "vimdoc" },
 				-- Autoinstall languages that are not installed
 				auto_install = true,
 				highlight = { enable = true },
