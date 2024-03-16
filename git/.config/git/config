@@ -1,5 +1,17 @@
 [user]
 	name = Alex Jenter
 	email = jenteralex@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxZem85hUGXBHxs9ggb8CutXMMQJoghqXOuYRQwrd75
+
 [alias]
 	st = status
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
