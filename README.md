@@ -5,4 +5,3 @@
 ```sh
 stow --restow */
 ```
-test
