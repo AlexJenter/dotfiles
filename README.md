@@ -17,3 +17,10 @@ $ brew bundle dump
 # install everything from the Brewfile
 $ brew bundle
 ```
+
+## Setup per OS
+```sh
+stow --restow linux
+# or
+stow --restow macos
+```
