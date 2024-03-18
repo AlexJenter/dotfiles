@@ -9,8 +9,10 @@ st = status
 [gpg]
 format = ssh
 
-[gpg "ssh"]
-program = $GIT_SSH_COMMAND
+# [gpg "ssh"]
+# program = $GIT_SSH_COMMAND
 
 [commit]
 gpgsign = true
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
