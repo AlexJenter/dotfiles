@@ -1,0 +1,14 @@
+xterm*font:     *-fixed-*-*-*-20-*
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+dmenu.font : JetBrains Mono
+dmenu.background : #2E3440
+dmenu.foreground : #D8DEE9
+dmenu.selbackground : #edcb9b
+dmenu.selforeground : #2e3440
