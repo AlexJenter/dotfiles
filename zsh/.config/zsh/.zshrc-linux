@@ -1,5 +1,7 @@
-source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+# git config --system gpg.ssh.program "/opt/1Password/op-ssh-sign"
 
+source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $HOME/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[OA' history-substring-search-up
 bindkey '^[OB' history-substring-search-down
