@@ -38,11 +38,6 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
-bindkey '^[OA' history-substring-search-up
-bindkey '^[OB' history-substring-search-down
-
-# bindkey '^[[A' history-substring-search-up
-# bindkey '^[[B' history-substring-search-down
 # Change history substring search colours (less 'flashy')
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='underline'
@@ -55,3 +50,11 @@ zstyle ':completion:*' group-name ''
 
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U colors && colors 
+autoload -Uz vcs_info
+precmd() { vcs_info }
+# zstyle ':vcs_info:git:*' formats '%b '
+zstyle ':vcs_info:git*' formats "%{$fg[grey]%}%s %{$reset_color%}%r/%S%{$fg[grey]%} %{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
+setopt PROMPT_SUBST
+PROMPT='${vcs_info_msg_0_}%# '
