@@ -741,6 +741,7 @@ require("lazy").setup({
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ import = "alex.plugins.colorscheme" },
 	{ import = "alex.plugins.nvim-tree" },
+	{ import = "alex.plugins.neogit" },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
