@@ -21,6 +21,8 @@ Linux)
     ;;
 esac
 
+compinit -d $HOME/.cache/zsh/compdump
+
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
 
 HISTFILE="$HOME/.cache/zsh/history"
