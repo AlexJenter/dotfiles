@@ -58,4 +58,4 @@ precmd() { vcs_info }
 # zstyle ':vcs_info:git:*' formats '%b '
 zstyle ':vcs_info:git*' formats "%{$fg[grey]%}%s %{$reset_color%}%r/%S%{$fg[grey]%} %{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
 setopt PROMPT_SUBST
-PROMPT='${vcs_info_msg_0_}%# '
+PROMPT='${vcs_info_msg_0_}$ '
