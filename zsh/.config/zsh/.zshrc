@@ -23,7 +23,7 @@ esac
 
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
 
-HISTFILE="$HOME/.zsh_history"
+HISTFILE="$HOME/.cache/zsh/history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 setopt BANG_HIST              # Treat the '!' character specially during expansion.
