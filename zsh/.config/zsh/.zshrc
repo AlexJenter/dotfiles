@@ -1,3 +1,5 @@
+autoload -U colors && colors 
+
 source $HOME/.config/zsh/aliases
 
 export PATH="$HOME/.local/bin/:$PATH"
@@ -51,7 +53,6 @@ zstyle ':completion:*' group-name ''
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-autoload -U colors && colors 
 autoload -Uz vcs_info
 precmd() { vcs_info }
 # zstyle ':vcs_info:git:*' formats '%b '
