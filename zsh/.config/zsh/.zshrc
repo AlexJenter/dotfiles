@@ -3,7 +3,8 @@ autoload -U colors && colors
 source $HOME/.config/zsh/aliases
 
 export PATH="$HOME/.local/bin/:$PATH"
-export EDITOR="nvim"
+export EDITOR=nvim
+export VISUAL=nvim
 
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
