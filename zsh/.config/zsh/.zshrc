@@ -11,6 +11,7 @@ case $(uname) in
         ;;
 esac
 
+autoload -U colors && colors 
 source $HOME/.config/zsh/aliases.zsh
 
 export PATH="$HOME/.local/bin/:$PATH"
@@ -21,16 +22,12 @@ eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.cache/starship
 
-autoload -U colors && colors 
-
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 autoload -U edit-command-line
 
-
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
-
 HISTFILE="$HOME/.cache/zsh/history"
 HISTSIZE=10000000
 SAVEHIST=10000000
