@@ -4,7 +4,7 @@
 add_newline = true
 
 format = '''
-$directory$fill$git_branch
+$directory$fill$git_status$git_branch
 $character'''
 
 [fill]
@@ -24,9 +24,11 @@ style = 'bright-black'
 format = '[$branch(:$remote_branch)]($style)'
 
 [git_status]
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
+format = '[[$all_status$ahead_behind](fg:8 bg:3)](fg:3) '
+modified = '~'
+ahead = '⍏${count}'
+diverged = '±⍏${ahead_count}⍖${behind_count}'
+behind = '⍖${count} '
 
 [package]
 disabled = true
