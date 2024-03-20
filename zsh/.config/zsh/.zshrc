@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-compinit -d $HOME/.cache/zsh/compdump
-
 case $(uname) in
 Darwin)
     # commands for macos go here
@@ -14,12 +12,12 @@ Linux)
 esac
 
 source $HOME/.config/zsh/aliases.zsh
-source $HOME/.config/zsh/prompt.zsh
 
 export PATH="$HOME/.local/bin/:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
 
+eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.cache/starship
 
