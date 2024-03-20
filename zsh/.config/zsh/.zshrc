@@ -1,28 +1,35 @@
-autoload -U colors && colors 
+#!/usr/bin/env zsh
 
-source $HOME/.config/zsh/aliases
+compinit -d $HOME/.cache/zsh/compdump
+
+case $(uname) in
+Darwin)
+    # commands for macos go here
+    source $HOME/.config/zsh/.zshrc-macos.zsh
+    ;;
+Linux)
+    # commands for Linux go here
+    source $HOME/.config/zsh/.zshrc-linux.zsh
+    ;;
+esac
+
+source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/prompt.zsh
 
 export PATH="$HOME/.local/bin/:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
+
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CACHE=~/.cache/starship
+
+autoload -U colors && colors 
 
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 autoload -U edit-command-line
 
-case $(uname) in
-Darwin)
-    # commands for macos go here
-    source $HOME/.config/zsh/.zshrc-macos
-    ;;
-Linux)
-    # commands for Linux go here
-    source $HOME/.config/zsh/.zshrc-linux
-    ;;
-esac
-
-compinit -d $HOME/.cache/zsh/compdump
 
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
 
@@ -55,13 +62,6 @@ zstyle ':completion:*' group-name ''
 
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-autoload -Uz vcs_info
-precmd() { vcs_info }
-# zstyle ':vcs_info:git:*' formats '%b '
-zstyle ':vcs_info:git*' formats "%{$fg[grey]%}%s %{$reset_color%}%r/%S%{$fg[grey]%} %{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
-setopt PROMPT_SUBST
-PROMPT='${vcs_info_msg_0_}$ '
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
