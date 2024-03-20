@@ -1,20 +1,18 @@
 # you installed by curl
 # curl -sS https://starship.rs/install.sh | sh
 
-# Inserts a blank line between shell prompts
 add_newline = true
 
 format = '''
 $directory$fill$git_branch
 $character'''
 
-
 [fill]
 symbol = ' '
-# Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[\$](green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-error_symbol = '[\$](red)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[character] 
+success_symbol = '[\$](green)' 
+error_symbol = '[\$](red)' 
 
 [directory]
 truncation_length = 0
@@ -25,7 +23,6 @@ style = 'bright-black'
 style = 'bright-black'
 format = '[$branch(:$remote_branch)]($style)'
 
-# Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
 
