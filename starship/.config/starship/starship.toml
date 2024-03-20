@@ -20,13 +20,13 @@ truncate_to_repo = false
 style = 'bright-black'
 
 [git_branch]
-style = 'bright-black'
+style = 'fg:0'
 format = '[$branch(:$remote_branch)]($style)'
 
 [git_status]
-format = '[[$all_status$ahead_behind](fg:8 bg:3)](fg:3) '
+format = '[[$all_status$ahead_behind](fg:7 bg:8)](fg:8) '
 modified = '~'
-ahead = '⍏${count}'
+ahead = '⍏${count}'
 diverged = '±⍏${ahead_count}⍖${behind_count}'
 behind = '⍖${count} '
 
