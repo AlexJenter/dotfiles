@@ -1,24 +1,31 @@
+#!/usr/bin/env zsh
+
+case $(uname) in
+    Darwin)
+        # commands for macos go here
+        source $HOME/.config/zsh/.zshrc-macos.zsh
+        ;;
+    Linux)
+        # commands for Linux go here
+        source $HOME/.config/zsh/.zshrc-linux.zsh
+        ;;
+esac
+
+autoload -U colors && colors 
 source $HOME/.config/zsh/aliases.zsh
 
+export PATH="$HOME/.local/bin/:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
-export HISTFILE="$HOME/.cache/zsh/history"
 
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.cache/starship
 
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-history-substring-search"
-
-# NOTE: config zsh-users/zsh-history-substring-search
-bindkey '\eOA' history-substring-search-up # or '\eOA'
-bindkey '\eOB' history-substring-search-down # or '\eOB'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='underline'
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+autoload -U edit-command-line
 
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
 HISTFILE="$HOME/.cache/zsh/history"
@@ -38,7 +45,19 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
-# If you want a special location for the compdump, and only one location, you need to skip_global_compinit in your .zshenv
-# https://superuser.com/questions/1785213/change-the-default-location-of-zsh-completion-cache-files-for-macos/1824845#1824845
-autoload -Uz compinit
-compinit -d $HOME/.cache/zsh/compdump
+# Change history substring search colours (less 'flashy')
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='underline'
+
+# tab completion case insensitive
+# https://superuser.com/questions/1092033/how-can-i-make-zsh-tab-completion-fix-capitalization-errors-for-directories-and
+autoload -Uz compinit && compinit
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*' group-name ''
+
+eval "$(zoxide init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
