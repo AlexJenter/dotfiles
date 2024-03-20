@@ -1,14 +1,14 @@
 #!/usr/bin/env zsh
 
 case $(uname) in
-Darwin)
-    # commands for macos go here
-    source $HOME/.config/zsh/.zshrc-macos.zsh
-    ;;
-Linux)
-    # commands for Linux go here
-    source $HOME/.config/zsh/.zshrc-linux.zsh
-    ;;
+    Darwin)
+        # commands for macos go here
+        source $HOME/.config/zsh/.zshrc-macos.zsh
+        ;;
+    Linux)
+        # commands for Linux go here
+        source $HOME/.config/zsh/.zshrc-linux.zsh
+        ;;
 esac
 
 source $HOME/.config/zsh/aliases.zsh
