@@ -15,9 +15,9 @@ return { -- Useful plugin to show you pending keybinds.
 			["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
 		})
 		wk.register({
-			["<leader>G"] = {
+			["<leader>g"] = {
 				name = "[G]it",
-				G = { "<cmd>Neogit<cr>", "Open Neo[g]it" },
+				g = { "<cmd>Neogit<cr>", "Open Neo[g]it" },
 				_ = "which_key_ignore",
 			},
 		})
