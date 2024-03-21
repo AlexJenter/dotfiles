@@ -4,6 +4,17 @@ export EDITOR=nvim
 export VISUAL=nvim
 export HISTFILE="$HOME/.cache/zsh/history"
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  KEY_UP='\eOA'
+  KEY_DOWN='\eOB'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  KEY_UP='^[[A'
+  KEY_DOWN='^[[B'
+  git config --file=$HOME/dotfiles/git/.config/git/config gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  export PATH="/opt/homebrew/bin:$PATH"
+else
+fi
+
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.cache/starship
@@ -12,11 +23,10 @@ export STARSHIP_CACHE=~/.cache/starship
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-history-substring-search"
 
-# NOTE: config zsh-users/zsh-history-substring-search
-bindkey '\eOA' history-substring-search-up # or '\eOA'
-bindkey '\eOB' history-substring-search-down # or '\eOB'
+plug "zsh-users/zsh-history-substring-search"
+bindkey $KEY_UP history-substring-search-up # or '\eOA'
+bindkey $KEY_DOWN history-substring-search-down # or '\eOB'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='underline'
 
