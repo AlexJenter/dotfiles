@@ -7,11 +7,10 @@ export HISTFILE="$HOME/.cache/zsh/history"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   KEY_UP='\eOA'
   KEY_DOWN='\eOB'
-  export GIT_SSH="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   KEY_UP='^[[A'
   KEY_DOWN='^[[B'
-  export GIT_SSH="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  export SSH_AUTH_SOCK="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
   export PATH="/opt/homebrew/bin:$PATH"
 else
 fi
