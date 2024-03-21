@@ -7,10 +7,11 @@ export HISTFILE="$HOME/.cache/zsh/history"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   KEY_UP='\eOA'
   KEY_DOWN='\eOB'
+  export GIT_SSH="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   KEY_UP='^[[A'
   KEY_DOWN='^[[B'
-  git config --file=$HOME/dotfiles/git/.config/git/config gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  export GIT_SSH="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
   export PATH="/opt/homebrew/bin:$PATH"
 else
 fi
@@ -28,10 +29,9 @@ plug "zsh-users/zsh-history-substring-search"
 bindkey $KEY_UP history-substring-search-up # or '\eOA'
 bindkey $KEY_DOWN history-substring-search-down # or '\eOB'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='underline'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,underline'
 
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
-HISTFILE="$HOME/.cache/zsh/history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 setopt BANG_HIST              # Treat the '!' character specially during expansion.
