@@ -20,7 +20,7 @@ truncate_to_repo = false
 style = 'bright-black'
 
 [git_branch]
-style = 'fg:0'
+style = 'bright-black'
 format = '[$branch(:$remote_branch)]($style)'
 
 # get help here https://www.nerdfonts.com/cheat-sheet
