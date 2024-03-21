@@ -1,13 +1,14 @@
 [user]
-name = Alex Jenter
-email = jenteralex@gmail.com
-signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxZem85hUGXBHxs9ggb8CutXMMQJoghqXOuYRQwrd75
+  name = Alex Jenter
+  email = jenteralex@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxZem85hUGXBHxs9ggb8CutXMMQJoghqXOuYRQwrd75
 
 [alias]
-st = status -s
+  st = status -s
+  cm = commit
 
 [gpg]
-format = ssh
+  format = ssh
 
 [commit]
-gpgsign = true
+  gpgsign = true
