@@ -2,7 +2,6 @@ source $HOME/.config/zsh/aliases.zsh
 
 export EDITOR=nvim
 export VISUAL=nvim
-export HISTFILE="$HOME/.cache/zsh/history"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   KEY_UP='\eOA'
@@ -29,6 +28,8 @@ bindkey $KEY_UP history-substring-search-up # or '\eOA'
 bindkey $KEY_DOWN history-substring-search-down # or '\eOB'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,underline'
+[ -f "${XDG_DATA_HOME:-$HOME/.cache}/zsh/history" ] && mkdir -p $HOME/.cache/zsh
+export HISTFILE="$HOME/.cache/zsh/history"
 
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
 HISTSIZE=10000000
