@@ -10,5 +10,9 @@
 [gpg]
   format = ssh
 
+
+[gpg "ssh"]
+  program = "~/dotfiles/git/.config/git/gpg-ssh-program.sh"
+
 [commit]
   gpgsign = true
