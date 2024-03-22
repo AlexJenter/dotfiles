@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Seems to work, comment just for test commit
+
 MACOS_SSH_SIGN="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 LINUX_SSH_SIGN="/opt/1Password/op-ssh-sign"
 
