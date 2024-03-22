@@ -2,3 +2,4 @@
 
 skip_global_compinit=1
 ZDOTDIR=.config/zsh
+PATH=$HOME/.local/bin/:$PATH
