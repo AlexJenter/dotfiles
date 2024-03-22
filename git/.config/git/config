@@ -12,7 +12,7 @@
 
 
 [gpg "ssh"]
-  program = "/home/alex/.config/git/gpg-ssh-program.sh"
+  program = "$HOME/.config/git/gpg-ssh-program.sh"
 
 [commit]
   gpgsign = true
