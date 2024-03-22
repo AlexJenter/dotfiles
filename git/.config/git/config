@@ -10,9 +10,11 @@
 [gpg]
   format = ssh
 
+[includeIf "gitdir/i:/Users/"]
+  path = "/Users/alex/.gitconfig-macos"
 
-[gpg "ssh"]
-  program = "$HOME/.config/git/gpg-ssh-program.sh"
+[includeIf "gitdir/i:/home/"]
+  path = "/home/alex/.gitconfig-linux"
 
 [commit]
   gpgsign = true
