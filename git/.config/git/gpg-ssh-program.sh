@@ -10,5 +10,5 @@ if [ -f "$MACOS_SSH_SIGN" ]; then
 elif [ -f "$LINUX_SSH_SIGN" ]; then
   "$LINUX_SSH_SIGN" "$@"
 else
-    ssh-keygen "$@"
-fii
+  ssh-keygen "$@"
+fi
