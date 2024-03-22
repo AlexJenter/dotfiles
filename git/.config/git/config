@@ -9,7 +9,7 @@
 
 [gpg]
   format = ssh
-
+; https://www.kenmuse.com/blog/automatic-ssh-commit-signing-with-1password/
 [includeIf "gitdir/i:/Users/"]
   path = "/Users/alex/.gitconfig-macos"
 
