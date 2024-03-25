@@ -705,6 +705,7 @@ require("lazy").setup({
 	{ import = "alex.plugins.nvim-tree" },
 	{ import = "alex.plugins.neogit" },
 	{ import = "alex.plugins.which-key" },
+	{ import = "alex.plugins.nvim-emmet" },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
