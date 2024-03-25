@@ -31,6 +31,14 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,underline'
 [ -f "${XDG_DATA_HOME:-$HOME/.cache}/zsh/history" ] && mkdir -p $HOME/.cache/zsh
 export HISTFILE="$HOME/.cache/zsh/history"
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+
 # HISTORY https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh/273863#273863
 HISTSIZE=10000000
 SAVEHIST=10000000
