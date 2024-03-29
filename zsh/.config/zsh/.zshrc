@@ -24,8 +24,8 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 
 plug "zsh-users/zsh-history-substring-search"
-bindkey $KEY_UP history-substring-search-up # or '\eOA'
-bindkey $KEY_DOWN history-substring-search-down # or '\eOB'
+bindkey $KEY_UP history-substring-search-up
+bindkey $KEY_DOWN history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,underline'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,underline'
 [ -f "${XDG_DATA_HOME:-$HOME/.cache}/zsh/history" ] && mkdir -p $HOME/.cache/zsh
