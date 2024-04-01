@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd '/Users/alex/Library/Mobile Documents/com~apple~CloudDocs/Wohnen/Inserate' || exit
+
+DATE=$(date +'%y%m%d')
+DIR=$(gum input --prompt "foldername: " --value "$DATE"-)
+mkdir "$DIR"
+OPEN "$DIR"
