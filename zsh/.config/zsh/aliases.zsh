@@ -9,8 +9,8 @@ alias vim="nvim"
 alias vi="nvim"
 alias i="nvim"
 
-alias pbcopy="xclip -selection c"
-alias pbpaste="xclip -selection clipboartd -o"
+[ ! "command -v xclip" ] && alias pbcopy="xclip -selection c"
+[ ! "command -v xclip" ] && alias pbpaste="xclip -selection clipboartd -o"
 
 function take {
   mkdir -p $1
