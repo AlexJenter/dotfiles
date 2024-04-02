@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+mlr --imd --ocsv put 'begin {@x = ""} is_empty($von) {$von=@x}; @x=$bis' \
+then filter '$bez != "Total"' \
+then fill-down -f bez \
+then put '
+  func minutes(d) {
+  a = splita(d, ":");
+  return a[1]*60 + int(a[2]);
+}
+minDur = minutes($bis) - minutes($von);
+hours = minDur // 60;
+minutes = minDur % 60;
+$dur = hours.":".leftpad(minutes,2, 0);' \
+then cat \
+  -- "$@"

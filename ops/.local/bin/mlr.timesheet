@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+mlr --m2p put 'begin {@x = ""} is_empty($von) {$von=@x}; @x=$bis' \
+then filter '$bez != "Total"' \
+then fill-down -f bez \
+then put 'v = splita($von, ":"); $minV = v[1] * 60 + int(v[2])' \
+then put 'v = splita($bis, ":"); $minB = v[1] * 60 + int(v[2])' \
+then put '$minD = $minB - $minV' \
+then put '$durH = $minD // 60' \
+then put '$durM = $minD % 60' \
+then put '$dur = $durH.":".leftpad($durM, 2, 0)' \
+then cut -f bez,dur "$@"
