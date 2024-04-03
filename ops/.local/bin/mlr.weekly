@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+mlr --m2p put '$file = FILENAME' \
+then put '$kw = gsub(FILENAME, "^.*ive/|\.md", "")' \
+then put '$kw = strptime($kw, "%Y-%m-%d")' \
+then put '$kw = strftime($kw, "%u")' \
+then group-by kw \
+then filter '$bez!="Total"' \
+then cut -f bez,von,bis,dur,kw "$@" 
+# then put '$kw = strptime(gsub(gsub($file,".md",""), "daily/archive/", ""), "%Y-%m-%d"))' \ 
+# then filter '$bez != "Total"' "$@"
+
