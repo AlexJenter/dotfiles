@@ -176,6 +176,7 @@ require("lazy").setup({
 	--    require('gitsigns').setup({ ... })
 	--
 	-- See `:help gitsigns` to understand what the configuration keys do
+	{ "sbdchd/neoformat" },
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -335,7 +336,7 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				-- tsserver = {},
+				tsserver = {},
 				--
 
 				lua_ls = {
@@ -379,6 +380,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format lua code
+				"prettier",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -559,11 +561,29 @@ require("lazy").setup({
 
 			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "bash", "c", "html", "lua", "markdown", "markdown_inline", "vim", "vimdoc" },
+				ensure_installed = {
+					"bash",
+					"c",
+					"html",
+					"javascript",
+					"lua",
+					"markdown",
+					"markdown_inline",
+					"scss",
+					"vim",
+					"vimdoc",
+					"json",
+					"css",
+				},
 				-- Autoinstall languages that are not installed
 				auto_install = true,
 				highlight = { enable = true },
 				indent = { enable = true },
+				filetypes = {
+					"html",
+					"javascript",
+					"javascriptreact",
+				},
 			})
 
 			-- There are additional nvim-treesitter modules that you can use to interact
