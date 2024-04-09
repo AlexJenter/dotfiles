@@ -1,5 +1,5 @@
--- require("alex.core.keymap")
--- require("alex.core.options")
+require("alex.core.keymap")
+require("alex.core.options")
 --[[
 
 =====================================================================
@@ -93,7 +93,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -164,10 +164,10 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+-- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+-- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -321,7 +321,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons", tag = "nerd-v2-compat", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -354,7 +354,9 @@ require("lazy").setup({
 				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 				--   },
 				-- },
-				-- pickers = {}
+				pickers = {
+					find_files = { theme = "ivy" },
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
@@ -851,20 +853,17 @@ require("lazy").setup({
 	--
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
-	-- require 'kickstart.plugins.lint',
+	-- require("kickstart.plugins.lint"),
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
 	--
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
+	-- { import = "alex.plugins.colorscheme" },
 	{ import = "alex.plugins" },
 }, {
-	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-		icons = {},
-	},
+	ui = { icons = {} },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
