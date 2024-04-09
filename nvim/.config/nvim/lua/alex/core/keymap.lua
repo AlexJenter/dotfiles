@@ -10,6 +10,6 @@ vim.keymap.set("n", "x", '"_x')
 --  nvim-tree
 vim.keymap.set("n", "<leader>e", "NvimTreeToggle")
 
--- rotate buffers
+-- cycle buffers
 vim.keymap.set("n", "<Tab>", ":bn<CR>")
 vim.keymap.set("n", "<STab>", ":bp<CR>")
