@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mlr --imd --ocsv put 'begin {@x = ""} is_empty($von) {$von=@x}; @x=$bis' \
+mlr --imd --opprint put 'begin {@x = ""} is_empty($von) {$von=@x}; @x=$bis' \
 then filter '$bez != "Total"' \
 then fill-down -f bez \
 then put '
