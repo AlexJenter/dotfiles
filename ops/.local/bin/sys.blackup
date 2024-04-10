@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SRC=/home/alex
+DST=/media/alex/WD\ BLACKUP/
+rsync -aP --info=progress2 --inplace "$SRC" "$DST"
