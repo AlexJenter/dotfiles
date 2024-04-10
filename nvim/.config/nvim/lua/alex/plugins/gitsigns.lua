@@ -1,6 +1,6 @@
 return {
-	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
-		"lewis6991/gitsigns.nvim",
+	{
+		"lewis6991/gitsigns.nvim", -- https://github.com/lewis6991/gitsigns.nvim
 		opts = {
 			signs = {
 				add = { text = "A" },
@@ -19,7 +19,7 @@ return {
 		},
 	},
 	{
-		"radyz/telescope-gitsigns",
+		"radyz/telescope-gitsigns", -- https://github.com/radyz/telescope-gitsigns
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
 			"nvim-telescope/telescope.nvim",
