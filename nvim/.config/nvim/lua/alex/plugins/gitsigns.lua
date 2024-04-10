@@ -3,19 +3,24 @@ return {
 		"lewis6991/gitsigns.nvim", -- https://github.com/lewis6991/gitsigns.nvim
 		opts = {
 			signs = {
-				add = { text = "A" },
-				change = { text = "C" },
-				delete = { text = "D" },
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "-" },
 				topdelete = { text = "‾" },
 				changedelete = { text = "~" },
 			},
+			preview_config = {
+				border = "single",
+				style = "minimal",
+				relative = "cursor",
+				row = 0,
+				col = 1,
+			},
 		},
-		preview_config = {
-			border = "single",
-			style = "minimal",
-			relative = "cursor",
-			row = 0,
-			col = 1,
+		keys = {
+			{ "<leader>hp", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Preview hunk inline" },
+			{ "<Left>", "<cmd>Gitsigns prev_hunk<cr>", desc = "Previous hunk" },
+			{ "<Right>", "<cmd>Gitsigns next_hunk<cr>", desc = "Next hunk" },
 		},
 	},
 	{
