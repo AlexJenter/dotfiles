@@ -15,5 +15,6 @@ return {
 	keys = {
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Nvim Tree" },
 		{ "<leader>F", "<cmd>NvimTreeFindFile<cr>", desc = "Find File in Nvim Tree" },
+		{ "<leader>E", "<cmd>NvimTreeFocus<cr>", desc = "Focus Nvim Tree" },
 	},
 }
