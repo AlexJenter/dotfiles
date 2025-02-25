@@ -6,6 +6,7 @@
 [alias]
   st = status -s
   cm = commit
+  lg = log --pretty=oneline
 
 [gpg]
   format = ssh
@@ -15,5 +16,12 @@
 
 [commit]
   gpgsign = true
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
