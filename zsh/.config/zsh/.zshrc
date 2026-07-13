@@ -63,3 +63,9 @@ autoload -Uz compinit && compinit -d $HOME/.cache/zsh/compdump
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
 # partial completion suggestions
 # zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suffix 
+eval "$(zoxide init zsh)"
+
+# fzf shell integration: Ctrl-R history, Ctrl-T files, Alt-C cd
+if command -v fzf >/dev/null; then
+  source <(fzf --zsh)
+fi
