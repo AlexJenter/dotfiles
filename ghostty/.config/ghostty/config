@@ -4,7 +4,7 @@ window-colorspace = display-p3
 
 # Make the Option key send Alt/Meta so shortcuts like Alt-C (fzf cd) work.
 # Use `left` to keep the right Option key free for typing special characters.
-macos-option-as-alt = true
+macos-option-as-alt = right
 
 font-family = JetBrains Mono
 font-size = 16
@@ -14,3 +14,5 @@ keybind = cmd+s>r=reload_config
 keybind = cmd+s>s=toggle_quick_terminal
 
 split-divider-color = #606371
+macos-titlebar-style = transparent
+macos-titlebar-style = native
