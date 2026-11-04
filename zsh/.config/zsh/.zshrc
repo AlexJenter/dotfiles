@@ -59,10 +59,11 @@ setopt HIST_BEEP              # Beep when accessing nonexistent history.
 # If you want a special location for the compdump, and only one location, you need to skip_global_compinit in your .zshenv
 # https://superuser.com/questions/1785213/change-the-default-location-of-zsh-completion-cache-files-for-macos/1824845#1824845
 autoload -Uz compinit && compinit -d $HOME/.cache/zsh/compdump
-# case insensitive path-completion 
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/zcompcache"
+# case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 # partial completion suggestions
-# zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suffix 
+# zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suffix
 eval "$(zoxide init zsh)"
 
 # fzf shell integration: Ctrl-R history, Ctrl-T files, Alt-C cd

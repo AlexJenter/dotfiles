@@ -9,3 +9,6 @@ log/
 *.log
 
 **/.claude/settings.local.json
+
+# zsh
+.zcompcache/
