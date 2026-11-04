@@ -1,5 +1,5 @@
+require("alex.core.options") -- sets the leader, so it must load before the keymaps
 require("alex.core.keymap")
-require("alex.core.options")
 
 -- NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
