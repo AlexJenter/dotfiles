@@ -68,5 +68,11 @@ eval "$(zoxide init zsh)"
 
 # fzf shell integration: Ctrl-R history, Ctrl-T files, Alt-C cd
 if command -v fzf >/dev/null; then
-  source <(fzf --zsh)
+  if fzf --zsh >/dev/null 2>&1; then
+    source <(fzf --zsh)
+  else
+    # fzf < 0.48 (e.g. Ubuntu's apt package) ships these as separate files
+    [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+    [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+  fi
 fi
