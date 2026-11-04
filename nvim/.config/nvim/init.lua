@@ -590,17 +590,14 @@ require("lazy").setup({
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			vim.lsp.config("*", { capabilities = capabilities })
+			for name, config in pairs(servers) do
+				vim.lsp.config(name, config)
+			end
+
+			-- Enables every installed server. stylua is run by conform, not as an LSP.
 			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for tsserver)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
+				automatic_enable = { exclude = { "stylua" } },
 			})
 		end,
 	},
