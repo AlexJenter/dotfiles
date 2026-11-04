@@ -12,3 +12,5 @@ log/
 
 # zsh
 .zcompcache/
+.zcompdump*
+.zsh_sessions/
