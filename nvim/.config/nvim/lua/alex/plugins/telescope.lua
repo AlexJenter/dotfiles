@@ -12,6 +12,7 @@ return {
 			end,
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
+		{ "nvim-tree/nvim-web-devicons", tag = "nerd-v2-compat", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
 		require("telescope").setup({
